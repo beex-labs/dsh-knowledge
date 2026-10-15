@@ -1,0 +1,6 @@
+# Register the DSH project knowledge plugin. It contributes the `/init` command,
+# one prompt section, and one agent-loop listener that injects the `.dsh`
+# knowledge base before each turn.
+- insert:
+    - id: dsh-knowledge
+      name: 'dsh-knowledge'

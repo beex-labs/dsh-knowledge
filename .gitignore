@@ -1,0 +1,15 @@
+# 本插件零运行时依赖，只用 node: 内置模块；没有构建产物，也没有依赖要装。
+
+# 测试写入系统的临时目录，仓库里不产生任何测试输出。
+
+# Editor and OS noise
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+
+# Logs and crash output
+*.log
+npm-debug.log*
+pnpm-debug.log*

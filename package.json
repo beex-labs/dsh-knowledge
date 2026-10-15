@@ -1,0 +1,17 @@
+{
+  "name": "dsh-knowledge",
+  "version": "1.0.0",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "description": "DSH project knowledge system — /init hands the job to the model, which writes .dsh documents; every later turn gets them injected back.",
+  "exports": {
+    ".": "./index.js",
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}
