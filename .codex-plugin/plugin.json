@@ -1,0 +1,9 @@
+{
+  "name": "dsh-knowledge",
+  "version": "2.0.0",
+  "description": "Shared .dsh project knowledge. Read relevant project documents and update structural changes incrementally.",
+  "author": { "name": "beex-labs" },
+  "skills": "./skills/",
+  "repository": "https://github.com/beex-labs/dsh-knowledge",
+  "license": "MIT"
+}

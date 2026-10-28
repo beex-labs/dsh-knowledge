@@ -13,3 +13,7 @@ Thumbs.db
 *.log
 npm-debug.log*
 pnpm-debug.log*
+
+# Generated host packages; canonical sources live in lib/, scripts/, skills/.
+dist/
+*.tgz

@@ -1,12 +1,19 @@
 {
   "name": "dsh-knowledge",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "license": "MIT",
   "private": true,
   "type": "module",
-  "description": "DSH project knowledge system — /init hands the job to the model, which writes .dsh documents; every later turn gets them injected back.",
+  "description": "One shared .dsh project knowledge base for DSH, Claude Code, Codex, Copilot, MiniMax Code, OpenCode and other coding agents.",
+  "bin": { "dsh-knowledge": "./bin/dsh-knowledge.mjs" },
+  "scripts": { "test": "node test/run.mjs", "check": "node test/run.mjs && node test/lint-imports.mjs" },
+  "engines": { "node": ">=20" },
+  "repository": { "type": "git", "url": "git+https://github.com/beex-labs/dsh-knowledge.git" },
+  "files": ["index.js", "lib", "bin", "adapters", "scripts", "skills", "hooks", "plugin.json", ".claude-plugin", ".codex-plugin", ".minimax-plugin", "icon.png", "icon-dark.png", "cordis.patch.yml", "docs", "README*", "CHANGELOG.md", "LICENSE"],
   "exports": {
     ".": "./index.js",
+    "./core": "./lib/knowledge.mjs",
+    "./opencode": "./adapters/opencode.js",
     "./package.json": "./package.json"
   },
   "dsh": {

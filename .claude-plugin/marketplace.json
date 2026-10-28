@@ -1,0 +1,13 @@
+{
+  "name": "dsh-knowledge",
+  "owner": { "name": "beex-labs" },
+  "description": "Shared project knowledge for coding agents, maintained in one repository.",
+  "plugins": [
+    {
+      "name": "dsh-knowledge",
+      "source": "./",
+      "description": "One shared .dsh knowledge base across coding agents.",
+      "version": "2.0.0"
+    }
+  ]
+}

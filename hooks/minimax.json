@@ -1,0 +1,6 @@
+{
+  "hooks": {
+    "UserPromptSubmit": [{ "hooks": [{ "type": "command", "command": "node \"${PLUGIN_ROOT}/scripts/context.mjs\" --agent minimax", "commandWindows": "node \"${PLUGIN_ROOT}\\scripts\\context.mjs\" --agent minimax", "timeout": 10 }] }],
+    "SessionEnd": [{ "hooks": [{ "type": "command", "command": "node \"${PLUGIN_ROOT}/scripts/context.mjs\" --agent minimax", "commandWindows": "node \"${PLUGIN_ROOT}\\scripts\\context.mjs\" --agent minimax", "timeout": 3 }] }]
+  }
+}

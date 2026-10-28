@@ -1,0 +1,8 @@
+{
+  "name": "dsh-knowledge",
+  "version": "2.0.0",
+  "description": "Share .dsh project knowledge across agents, with per-prompt context and a knowledge skill.",
+  "author": { "name": "beex-labs" },
+  "repository": "https://github.com/beex-labs/dsh-knowledge",
+  "license": "MIT"
+}

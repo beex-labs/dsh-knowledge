@@ -268,7 +268,8 @@ async function makeProject() {
 
     // The same unchanged knowledge base must not be restated on the next turn.
     const again = await listener({ agent, messages: [], step: 1, turn: 2, signal: new AbortController().signal }, next)
-    eq(again.messages.length, 0, 'an unchanged knowledge base is not restated')
+    eq(again.messages.length, 1, 'an unchanged knowledge base retains a short pointer')
+    ok(!again.messages[0].content[0].text.includes('A project used by the test.'), 'the full unchanged overview is not restated')
 
     // A document edit must re-arm the reminder, since the model may have
     // rewritten the documents during the previous turn.
@@ -404,6 +405,15 @@ async function makeProject() {
   // Re-applying must not throw or duplicate global state.
   apply(fakeContext().ctx)
   ok(true, 'applying twice is safe')
+}
+
+{
+  const { ctx, registered } = fakeContext()
+  apply(ctx)
+  const listener = registered.listeners.get('agent/pre-step')[0]
+  const decision = { kind: 'enter', messages: [] }
+  eq(await listener({ agent: { id: 'missing-session' }, step: 1 }, async () => decision), decision, 'an agent without a session does not break the step')
+  eq(await listener({ step: 1 }, async () => decision), decision, 'a missing agent does not break the step')
 }
 
 console.log(`\n${failures === 0 ? 'PASS' : 'FAIL'}  ${checks - failures}/${checks} checks`)

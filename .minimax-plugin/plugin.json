@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "name": "dsh-knowledge",
+  "displayName": "DSH 共享知识库",
+  "version": "2.0.0",
+  "description": "所有 agent 共用项目根目录的 .dsh/，每轮注入上下文，knowledge 技能阅读真实代码生成和更新文档。",
+  "author": "beex-labs",
+  "icon": "icon.png",
+  "darkIcon": "icon-dark.png",
+  "category": "Code",
+  "exampleQueries": ["用 knowledge 技能建立项目知识库", "/knowledge src"],
+  "apps": [],
+  "mcpServers": [],
+  "skills": ["skills/knowledge/SKILL.md"],
+  "hooks": ["hooks/minimax.json"]
+}
