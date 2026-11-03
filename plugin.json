@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "dsh-knowledge",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Shared project knowledge in .dsh for coding agents. One repository, one knowledge base, native adapters and portable skills.",
   "author": { "name": "beex-labs" },
   "repository": "https://github.com/beex-labs/dsh-knowledge",

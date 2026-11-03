@@ -1,6 +1,6 @@
 {
   "name": "dsh-knowledge",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "license": "MIT",
   "private": true,
   "type": "module",
@@ -9,7 +9,7 @@
   "scripts": { "test": "node test/run.mjs", "check": "node test/run.mjs && node test/lint-imports.mjs" },
   "engines": { "node": ">=20" },
   "repository": { "type": "git", "url": "git+https://github.com/beex-labs/dsh-knowledge.git" },
-  "files": ["index.js", "lib", "bin", "adapters", "scripts", "skills", "hooks", "plugin.json", ".claude-plugin", ".codex-plugin", ".minimax-plugin", "icon.png", "icon-dark.png", "cordis.patch.yml", "docs", "README*", "CHANGELOG.md", "LICENSE"],
+  "files": ["index.js", "lib", "bin", "adapters", "scripts", "skills", "commands", "hooks", "plugin.json", ".claude-plugin", ".codex-plugin", ".minimax-plugin", ".codebuddy-plugin", "icon.png", "icon-dark.png", "cordis.patch.yml", "docs", "README*", "CHANGELOG.md", "LICENSE"],
   "exports": {
     ".": "./index.js",
     "./core": "./lib/knowledge.mjs",

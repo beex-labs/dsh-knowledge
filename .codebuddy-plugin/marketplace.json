@@ -1,0 +1,16 @@
+{
+  "name": "dsh-knowledge-local",
+  "owner": {
+    "name": "beex-labs"
+  },
+  "description": "本地市场：托管 dsh-knowledge（项目共享知识库）。",
+  "plugins": [
+    {
+      "name": "dsh-knowledge",
+      "source": "./",
+      "description": "共享项目知识库：每轮注入 .dsh 上下文，/dsh-knowledge:kb 让 AI 读真实代码后写成文档。",
+      "version": "2.0.1",
+      "license": "MIT"
+    }
+  ]
+}

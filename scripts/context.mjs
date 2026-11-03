@@ -96,7 +96,8 @@ export async function handleEvent(event, agent = 'claude', forcedName) {
   }
   // Qwen prompt can contain an internal tool-continuation expansion. Only the original submission can authorize init.
   const original = agent === 'qwen' ? event.submitted_prompt : event.prompt
-  const command = /^\s*\/(?:dsh-knowledge:)?knowledge(?:[ \t]+([^\r\n]*))?\s*$/.exec(typeof original === 'string' ? original : '')
+  // `kb` is the alias CodeBuddy needs: `knowledge` is shadowed by a built-in.
+  const command = /^\s*\/(?:dsh-knowledge:)?(?:knowledge|kb)(?:[ \t]+([^\r\n]*))?\s*$/.exec(typeof original === 'string' ? original : '')
   let text
   if (command && ['UserPromptSubmit', 'BeforeAgent', 'UserPromptExpansion'].includes(name)) {
     const scope = resolveScope(hint, command[1])

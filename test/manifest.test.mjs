@@ -6,7 +6,7 @@ const json = async (path) => JSON.parse(await readFile(path, 'utf8'))
 
 test('one version and one skill across portable, Claude, Codex, MiniMax and DSH', async () => {
   const pkg = await json('package.json')
-  for (const path of ['plugin.json', '.claude-plugin/plugin.json', '.codex-plugin/plugin.json', '.minimax-plugin/plugin.json']) {
+  for (const path of ['plugin.json', '.claude-plugin/plugin.json', '.codex-plugin/plugin.json', '.minimax-plugin/plugin.json', '.codebuddy-plugin/plugin.json']) {
     const manifest = await json(path)
     assert.equal(manifest.name, pkg.name)
     assert.equal(manifest.version, pkg.version)
@@ -16,6 +16,12 @@ test('one version and one skill across portable, Claude, Codex, MiniMax and DSH'
   assert.equal(marketplace.plugins[0].name, pkg.name)
   assert.equal(marketplace.plugins[0].version, pkg.version)
   assert.equal(marketplace.plugins[0].source, './')
+  const codebuddyMarketplace = await json('.codebuddy-plugin/marketplace.json')
+  assert.equal(codebuddyMarketplace.plugins[0].name, pkg.name)
+  assert.equal(codebuddyMarketplace.plugins[0].version, pkg.version)
+  assert.equal(codebuddyMarketplace.plugins[0].source, './')
+  const pluginCommand = await readFile('commands/kb.md', 'utf8')
+  assert.match(pluginCommand, /\$\{CLAUDE_PLUGIN_ROOT\}\/bin\/dsh-knowledge\.mjs/)
   await access(pkg.bin['dsh-knowledge'])
   for (const path of Object.values(pkg.exports)) await access(path)
   const skill = await readFile('skills/knowledge/SKILL.md', 'utf8')
@@ -29,4 +35,5 @@ test('one version and one skill across portable, Claude, Codex, MiniMax and DSH'
   for (const path of [...mini.skills, mini.icon, mini.darkIcon]) await access(path)
   assert.ok(pkg.files.includes('.claude-plugin'))
   assert.ok(pkg.files.includes('.minimax-plugin'))
+  assert.ok(pkg.files.includes('.codebuddy-plugin'))
 })

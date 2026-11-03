@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.0.1 (2026-11-03)
+
+- Rename the CodeBuddy project command to `/kb`: a built-in command shadows `knowledge` on CodeBuddy 2.172.1, so `.codebuddy/commands/knowledge.md` never expanded. The hook also accepts `/kb` as an alias.
+- Add a CodeBuddy plugin manifest (`.codebuddy-plugin/plugin.json` and `marketplace.json`) so this repository can be installed as a plugin, not only as a per-project integration.
+
 ## 2.0.0 (2026-10-28)
 
 - Consolidate DSH, Copilot, MiniMax and OpenCode source implementations into one repository and one shared knowledge core.

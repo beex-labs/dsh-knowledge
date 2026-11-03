@@ -1,0 +1,18 @@
+{
+  "name": "dsh-knowledge",
+  "version": "2.0.1",
+  "description": "共享项目知识库（项目根目录 .dsh/）：每轮对话把知识库注入上下文，/dsh-knowledge:kb 让模型读真实代码后写成文档。与 DSH、Claude Code、Codex、Copilot、MiniMax Code 共用同一份 .dsh。",
+  "author": {
+    "name": "beex-labs"
+  },
+  "repository": "https://github.com/beex-labs/dsh-knowledge",
+  "license": "MIT",
+  "keywords": [
+    "knowledge",
+    "documentation",
+    "project-context",
+    "hooks",
+    "slash-command"
+  ],
+  "category": "开发工具"
+}

@@ -1,0 +1,86 @@
+{
+  "version": 1,
+  "marketplaceName": "dsh-knowledge-local",
+  "manifestMtime": 1793663814108.8416,
+  "createdAt": 1793664061192,
+  "plugins": [
+    {
+      "name": "dsh-knowledge",
+      "source": "./",
+      "description": "共享项目知识库（项目根目录 .dsh/）：每轮对话把知识库注入上下文，/dsh-knowledge:kb 让模型读真实代码后写成文档。与 DSH、Claude Code、Codex、Copilot、MiniMax Code 共用同一份 .dsh。",
+      "version": "2.0.1",
+      "license": "MIT",
+      "marketplaceName": "dsh-knowledge-local",
+      "installedPath": "D:\\SoftCode\\File\\anyiba\\dsh\\dsh-knowledge\\",
+      "_capabilitiesLoaded": true,
+      "author": {
+        "name": "beex-labs"
+      },
+      "repository": "https://github.com/beex-labs/dsh-knowledge",
+      "keywords": [
+        "knowledge",
+        "documentation",
+        "project-context",
+        "hooks",
+        "slash-command"
+      ],
+      "category": "开发工具",
+      "sourcePath": "./",
+      "configPath": "D:\\SoftCode\\File\\anyiba\\dsh\\dsh-knowledge\\.codebuddy-plugin\\plugin.json",
+      "commands": [
+        {
+          "name": "kb",
+          "description": "建立或增量更新项目共享知识库（.dsh）：让 AI 读真实代码后写成文档",
+          "path": "commands/kb.md"
+        }
+      ],
+      "hooks": {
+        "UserPromptSubmit": [
+          {
+            "hooks": [
+              {
+                "type": "command",
+                "command": "node \"D:\\SoftCode\\File\\anyiba\\dsh\\dsh-knowledge\\/scripts/context.mjs\" --agent claude",
+                "timeout": 10,
+                "pluginRoot": "D:\\SoftCode\\File\\anyiba\\dsh\\dsh-knowledge\\"
+              }
+            ]
+          }
+        ],
+        "SessionStart": [
+          {
+            "matcher": "compact|resume",
+            "hooks": [
+              {
+                "type": "command",
+                "command": "node \"D:\\SoftCode\\File\\anyiba\\dsh\\dsh-knowledge\\/scripts/context.mjs\" --agent claude",
+                "timeout": 10,
+                "pluginRoot": "D:\\SoftCode\\File\\anyiba\\dsh\\dsh-knowledge\\"
+              }
+            ]
+          }
+        ],
+        "SessionEnd": [
+          {
+            "hooks": [
+              {
+                "type": "command",
+                "command": "node \"D:\\SoftCode\\File\\anyiba\\dsh\\dsh-knowledge\\/scripts/context.mjs\" --agent claude",
+                "timeout": 3,
+                "pluginRoot": "D:\\SoftCode\\File\\anyiba\\dsh\\dsh-knowledge\\"
+              }
+            ]
+          }
+        ]
+      },
+      "skills": [
+        {
+          "name": "knowledge",
+          "description": "建立、使用或增量更新项目根目录 .dsh/ 共享知识库。当用户提到知识库、项目架构、功能入口或数据流，或工作涉及多个模块时使用。所有 agent 共用这份文档。",
+          "path": "skills/knowledge"
+        }
+      ],
+      "status": "enabled"
+    }
+  ]
+}
